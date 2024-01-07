@@ -11,8 +11,8 @@ using namespace std;
 int main(){
     string s,t;
     while(cin>>s>>t){
-        long long j = 0;
-        for(long long i = 0; i < t.size(); i++){
+        long j = 0;
+        for(long i = 0; i < t.size(); i++){
             char tw = t[i];
             char sw = s[j];
             if(tw == sw){
