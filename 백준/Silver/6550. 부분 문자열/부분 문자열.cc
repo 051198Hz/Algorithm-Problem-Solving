@@ -10,23 +10,16 @@ using namespace std;
 
 int main(){
     string s,t;
-    tryAgin:
     while(cin>>s>>t){
-        int cnt = 0,cntOld = 0;
-        int j = 0;
-        for(int i = 0; i < t.size(); i++){
+        long long j = 0;
+        for(long long i = 0; i < t.size(); i++){
             char tw = t[i];
-            for( ; j < s.size(); ){
-                char sw = s[j];
-                if(tw == sw){
-                    j++;
-                    cnt++;
-                }
-                break;
+            char sw = s[j];
+            if(tw == sw){
+                j++;
             }
-            if(cnt == s.size()){
+            if(j == s.size()){
                 cout<<"Yes\n";
-                cnt = 0;
                 break;
             }
             if(i == t.size()-1){
