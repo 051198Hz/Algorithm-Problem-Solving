@@ -1,28 +1,19 @@
 #include "iostream"
-#include "cmath"
 #include "string"
 #include "vector"
 #include "algorithm"
 using namespace std;
 
-int makeMinNumber(vector<int> numbers, int cntZero){
+int makeMinNumber(vector<int> numbers){
     string a = "", b = "";
-    int size = numbers.size()+cntZero;
+    int size = numbers.size();
     for(int i = 0; i < size; i++){
-        if( i > 1 && cntZero != 0) {
-            if(i%2==0){
-                a+='0';
-            }else{
-                b+='0';
-            }
-            cntZero--;
-        }else if(i%2==0){
+        if(i%2==0){
             a+=to_string(numbers.front());
-            numbers.erase(numbers.begin());
         }else{
             b+= to_string(numbers.front());
-            numbers.erase(numbers.begin());
         }
+        numbers.erase(numbers.begin());
     }
     return  stoi(a) + stoi(b);
 }
@@ -49,7 +40,8 @@ int main(){
             }
         }
         sort(numbers.begin(),numbers.end());
-        cout<<makeMinNumber(numbers, cntZero)<<"\n";
+        numbers.insert(numbers.begin()+2,cntZero, 0);
+        cout<<makeMinNumber(numbers)<<"\n";
         numbers.clear();
         numbers.shrink_to_fit();
     }
