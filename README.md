@@ -1,7 +1,7 @@
 # 
 # 백준 & 프로그래머스 & SWEA 문제 풀이 목록
 [![Solved.ac
-프로필](http://mazassumnida.wtf/api/generate_badge?boj=peeper_o_o@naver.com)](https://solved.ac/peeper_o_o@naver.com)
+프로필](http://mazassumnida.wtf/api/generate_badge?boj={handle})](https://solved.ac/{handle})
 ## 📚 백준
 ### 🚀 Bronze
 | 문제번호 | 링크 |
