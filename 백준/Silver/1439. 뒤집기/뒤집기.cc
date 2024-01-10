@@ -1,19 +1,18 @@
 #include <iostream>
-#include <string>
-
 using namespace std;
+int main(){
+    string str; cin>>str;
 
-int main() {
-    string bin;
     int cnt = 0;
-    getline(cin,bin);
-    cnt++;
-    for (int i = 0; i < bin.size(); i++) {
-        if(bin[i]!=bin[i-1]&&i>0){
+
+    for(long long i = 1; i<str.size(); i++){
+        if( str[i] != str[i-1]){
             cnt++;
         }
     }
-    cnt/=2;
+
+    cnt++; cnt/=2;
     cout<<cnt;
+
     return 0;
 }
