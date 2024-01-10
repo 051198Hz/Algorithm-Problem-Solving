@@ -2,6 +2,9 @@
 using namespace std;
 int main(){
     //강산이의 총 휴가 v를 p일씩 쪼갠다. p일 내에 l일만 사용할 수 있다.
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
     int l,p,v;
     while(cin>>l>>p>>v){
