@@ -32,7 +32,11 @@ int main(){
 
     int n; cin>>n;
     int max = 0, min = 100001;
-
+    
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    
     for(int i = 0; i<n; i++){
         int start,end; cin>>start>>end;
         min = end < min ? end: min;
