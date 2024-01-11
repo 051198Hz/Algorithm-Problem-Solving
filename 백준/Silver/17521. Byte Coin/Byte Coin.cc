@@ -1,7 +1,7 @@
 #include "iostream"
 #include "algorithm"
 using namespace std;
-#define IAMFAST ios_base::sync_with_stdio(false);cin.tie(0);
+#define IAMSOFAST ios_base::sync_with_stdio(false);cin.tie(0);
 int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(0);
@@ -23,8 +23,9 @@ int main(){
     //오늘이 어제보다 코인 가격이 높아졌을 경우, 어제 가격으로 매수.
     //마지막 날 모든 코인 매도.
 
-    //try2
-    //
+    //sol
+    //내일이 오늘보다 코인 가격이 낮아졌을 경우, 전량 매도
+    //내일이 오늘보다 코인 가격이 높아졌을 경우, 전량 매수
 
     long long money,days; cin>>days>>money;
     long long myCoin = 0;
@@ -39,7 +40,8 @@ int main(){
         if( charts[i+1] > charts[i] ){ //매수
             myCoin += money/charts[i];
             money -= ( money/charts[i]) * charts[i];
-        }else if( charts[i+1] < charts[i] ){ //매도
+            // money = money%charts[i] 로 하면 올솔이 안남,,, 왜지?
+        }else if(  charts[i+1] < charts[i] ){ //매도
             money += myCoin*charts[i];
             myCoin = 0;
         }
