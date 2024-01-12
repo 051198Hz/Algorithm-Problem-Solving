@@ -1,11 +1,13 @@
 #include "iostream"
-#include "vector"
-#include "algorithm"
+#define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
 typedef long long ll;
 int main(){
+
+    fastio;
     int n; cin>>n;
-    vector<ll>fires(n);
+//    ll*fires = new ll[n];
+    ll fires[200000] = {0,};
     for(int i =0; i<n; i++){
         cin>>fires[i];
     }
@@ -17,21 +19,26 @@ int main(){
     //폭죽더미가 주어지는 순서와 실제 폭죽의 순서는 상관이 없다.
     //입력받은 폭죽더미를 오름차순으로 정렬하고 -> 현 소스는 입력되는 폭죽의 순서대로 진행한다.
     // 양 끝 값중 더 큰 값을 확인하여 더 큰 값의 폭죽더미에서 가장 가까운 폭죽을 터뜨린다.
-
-    //sort(fires.begin(),fires.end());
-
-    while(fires.size() > 2){
-        if( fires.front() > fires.back() ){
-            fires[0]--;fires[2]--;
-            fires.erase(fires.begin()+1);
+    int first = 0;
+    int size = n;
+    while(size > 2){
+        if( fires[first] > fires[n-1] ){
+            fires[first]--; fires[first+2]--;
+            fires[first+1] = fires[first];
+            fires[first] = 0;
+            first++;
+            size--;
         }else{
-            fires.at(fires.size()-3)--; fires.back()--;
-            fires.erase(fires.end()-2);
+            fires[n-3]--; fires[n-1]--;
+            fires[n-2] = fires[n-1];
+            fires[n-1] = 0;
+            n--;
+            size--;
         }
     }
 
 
-    ll result = fires[0] > fires[1] ? fires[0] : fires[1];
+    ll result = fires[first] > fires[n-1] ? fires[first] : fires[n-1];
 
     cout<<result;
 
