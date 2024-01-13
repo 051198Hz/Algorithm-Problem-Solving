@@ -2,17 +2,16 @@
 #include <algorithm>
 #define fastio ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
-typedef long long ll;
-ll n;
-ll*ropes;
-bool compare(ll a, ll b){ //내림차순 정렬
+int n;
+int*ropes;
+bool compare(int a, int b){ //내림차순 정렬
     return a > b;
 }
 void input(){
     //입력으로 로프 개수, 각 로프의 최대 중량을 입력받는다
     cin>>n;
-    ropes = new ll[n];
-    for(ll i = 0; i<n; i++){
+    ropes = new int[n];
+    for(int i = 0; i<n; i++){
         cin>>ropes[i];
     }
 }
@@ -48,15 +47,6 @@ void solution(){
     // 1. n+n+n....
     // 2. n + (n-a) + (n-b) + (n-c) + ...
     // 3. n + (n-a) + (n-a) + (n-c) + ..
-    //
-    sort(ropes, ropes+n, compare);
-    ll maxW = 0;
-    for(ll  i = 0; i<n; i++){
-        ll curMaxW = ropes[i] * (i+1);
-//        if(curMaxW < maxW ) break;
-        maxW = curMaxW > maxW ? curMaxW : maxW;
-    }
-    cout<<maxW;
     //10 10 10 10
     //10 + 10 = 20, /2 = 10
     //10 + 10 + 10 = 30, /3 = 10
@@ -68,6 +58,15 @@ void solution(){
     // 10 + 3 + 3 + 3 + 2 = 21, /5 = 4.2, 최대 10
     // 10 + 3 + 3 + 3 + 2 + 2 = 23 / 6 = 3.8 최대 12
     // 10 + 3 + 3 + 3 + 2 + 2 + 2 = 25 / 7 = 3.5 최대 14
+    // 같은 숫자가 계속되면 최대값이 늘어날 수 도 있으므로 모든 값을 검사해야함.
+    sort(ropes, ropes+n, compare);
+    int maxW = 0;
+    for(int  i = 0; i<n; i++){
+        int curMaxW = ropes[i] * (i+1);
+        maxW = curMaxW > maxW ? curMaxW : maxW;
+    }
+    cout<<maxW;
+
 
 }
 int main(){
