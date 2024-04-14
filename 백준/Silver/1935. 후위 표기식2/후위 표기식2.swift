@@ -1,19 +1,15 @@
 import Foundation
-
 let n = Int(readLine()!)!
-let postEx = readLine()!.map{String($0)}
-
-var aToi = [Double]()
-while(aToi.count < n){
-    aToi.append(Double(readLine()!)!)
-}
-
+print(String(format: "%.2f", calcPostex(postfix: readLine()!.map{String($0)})))
 func calcPostex(postfix: [String])->Double{
+    var aToi = [Double]()
+    for _ in 0..<n{
+        aToi.append(Double(readLine()!)!)
+    }
     var stack = [Double]()
     postfix.forEach{
         if $0.first!.isUppercase{
-            let number = aToi[ Int($0.first!.asciiValue! - 65) ]
-            stack.append(number)
+            stack.append(aToi[ Int($0.first!.asciiValue! - 65) ])
         }else{
             let b = stack.popLast()!
             let a = stack.popLast()!
@@ -29,5 +25,3 @@ func calcPostex(postfix: [String])->Double{
     }
     return stack.popLast()!
 }
-let answer = calcPostex(postfix: postEx)
-print(String(format: "%.2f", answer))
