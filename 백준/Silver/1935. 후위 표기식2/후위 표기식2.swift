@@ -1,7 +1,6 @@
 import Foundation
-let n = Int(readLine()!)!
-print(String(format: "%.2f", calcPostex(postfix: readLine()!.map{String($0)})))
-func calcPostex(postfix: [String])->Double{
+print(String(format: "%.2f", calcPostex(Int(readLine()!)!, readLine()!.map{String($0)})))
+func calcPostex(_ n:Int, _ postfix: [String])->Double{
     var aToi = [Double]()
     for _ in 0..<n{
         aToi.append(Double(readLine()!)!)
