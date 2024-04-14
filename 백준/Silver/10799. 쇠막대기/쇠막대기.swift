@@ -1,7 +1,7 @@
 let ps = readLine()!.map{String($0)}
 
-var sticks = Int.zero
-var cuts = Int.zero
+var sticks = 0
+var cuts = 0
 
 for i in 0..<ps.count{
     if ps[i] == "("{
