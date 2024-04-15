@@ -1,5 +1,7 @@
 import Foundation
 
+// MARK: - using FileIO, thank to Wapas
+
 var file = FileIO()
 
 
@@ -17,7 +19,7 @@ for i in 0..<n{
     stack.append(i)
 }
 
-answer.forEach{ print($0,terminator: " ")}
+print(answer.map{ "\($0)" }.joined(separator: " "))
 
 // MARK: - FileIO
 
