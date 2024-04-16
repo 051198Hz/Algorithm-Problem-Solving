@@ -1,16 +1,7 @@
 import Foundation
-
-// MARK: - using FileIO, thanks to Wapas
-
-//print(answer.map{ "\($0)" }.joined(separator: " "))
-//collection을 전체출력할 땐 forEach 말고 [String]으로 변환 후 joined(seper:"\n"로 String으로 압축 후 print로 출력하는게 더 빠름
-
-//현재 입력받은 값이 이전보다 크거나 같으면, -1
-
 var file = FileIO()
 for i in 0..<file.readInt(){
-    let str = file.readLine().split(separator: " ").map{String($0)}.reversed().joined(separator: " ")
-    print("Case #\(i+1):",str)
+    print("Case #\(i+1): \(file.readLine().split(separator: " ").reversed().joined(separator: " "))")
 }
 // MARK: - FileIO
 
@@ -118,4 +109,3 @@ struct FileIO {
         return Array(buffer[beginIndex..<(index-1)])
     }
 }
-
