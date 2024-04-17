@@ -1,4 +1,4 @@
-var stack:[Character] = []
+var stack = ""
 for ps in readLine()!{
     if stack.last == "(" && ps == ")"{
         stack.popLast()
