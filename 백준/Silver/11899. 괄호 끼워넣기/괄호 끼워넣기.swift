@@ -1,9 +1,9 @@
 var stack:[Character] = []
 for ps in readLine()!{
     if stack.last == "(" && ps == ")"{
-        _=stack.popLast()
-    }else{
-        stack.append(ps)
+        stack.popLast()
+        continue
     }
+    stack.append(ps)
 }
 print(stack.count)
