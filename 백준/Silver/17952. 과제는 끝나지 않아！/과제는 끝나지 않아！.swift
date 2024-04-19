@@ -113,24 +113,23 @@ struct FileIO {
 
 
 //deque 쓰는것 보다 insert 쓰는게 훨 빠른듯,,ㅠ
-typealias score_time = (score:Int, needTime:Int)
 var file = FileIO()
 let time = file.readInt()
 //var leftTime = time
-var stack: [(score:Int, needTime:Int)] = []
+var stack: [[Int]] = []
 var score = 0
 for _ in 0..<time{
-    if file.readString() == "1"{
-        let work: score_time = (file.readInt(),file.readInt())
+    if file.readInt() == 1{
+        let work = [file.readInt(),file.readInt()]
         stack.append(work)
     }
     if !stack.isEmpty{
         var work = stack.removeLast()
-        work.needTime -= 1
-        if work.needTime != 0{
+        work[1] -= 1
+        if work[1] != 0{
             stack.append(work)
         }else{
-            score += work.score
+            score += work[0]
         }
     }
 //    leftTime -= 1
