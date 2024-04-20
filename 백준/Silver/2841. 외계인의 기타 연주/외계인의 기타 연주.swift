@@ -2,10 +2,6 @@ import Foundation
 
 // MARK: - FileIO
 
-func stringToAscii(_ str: String) -> Int {
-    str.map { $0.asciiValue! }.map { Int($0) }.reduce(0) {$0 + $1}
-}
-
 struct FileIO {
     private let buffer:[UInt8]
     private var index: Int = 0
