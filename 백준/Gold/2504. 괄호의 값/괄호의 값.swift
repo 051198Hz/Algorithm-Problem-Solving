@@ -1,6 +1,7 @@
 import Foundation
 
 var stack: [Int] = []
+
 l: for c in readLine()!{
     switch c{
     case "(": stack.append(-1)
@@ -67,12 +68,9 @@ l: for c in readLine()!{
         }
     }
 }
-if stack.contains(-1) {
-                    print(0)
-                    exit(0)
+
+if stack.allSatisfy({ $0 != -1 && $0 != -2}){
+    print(stack.reduce(0){ $0 + $1 })
+    exit(0)
 }
-if stack.contains(-2) {
-                    print(0)
-                    exit(0)
-}
-print(stack.reduce(0){ $0 + $1 })
+print(0)
