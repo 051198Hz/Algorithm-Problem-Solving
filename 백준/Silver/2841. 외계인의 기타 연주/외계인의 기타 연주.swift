@@ -138,7 +138,7 @@ var file = FileIO()
 
 let stringN = file.readInt()
 _=file.readInt()
-var holdPrets: [[Int]] = [[Int]](repeating: [], count: stringN+1)
+var holdPrets: [[Int]] = [[Int]](repeating: [], count: 6+1)
 var count = 0
 for _ in 0..<stringN{
     let n = file.readInt()
