@@ -118,6 +118,7 @@ struct FileIO {
 // 반복문 앞에 outer: 등으로 라벨링을 하면 continue outer등으로 다중 반복문일 때 해당 라벨의 다음 반복으로 넘어감
 
 var file = FileIO()
+var answer = ""
 outer: for _ in 0..<file.readInt(){
     var isPopFront: Bool = true
     let cmds = file.readLine()
@@ -128,7 +129,7 @@ outer: for _ in 0..<file.readInt(){
         switch cmd{
         case "D":
             if deque.size == 0 {
-                print("error")
+                answer+="error\n"
                 continue outer
             }
             if isPopFront { deque.pop_front() }
@@ -136,9 +137,9 @@ outer: for _ in 0..<file.readInt(){
         default: isPopFront = !isPopFront
         }
     }
-    var answer = "["
+    answer += "["
     if deque.empty {
-        print("[]")
+        answer += "]\n"
         continue
     }
     if isPopFront{
@@ -146,16 +147,18 @@ outer: for _ in 0..<file.readInt(){
             answer += "\(deque.pop_front()!),"
         }
         answer.removeLast()
-        print(answer+"]")
+        answer+="]\n"
         continue
     }
     while !deque.empty{
         answer += "\(deque.pop_back()!),"
     }
     answer.removeLast()
-    print(answer+"]")
+    answer += "]\n"
     continue
 }
+print(answer)
+
 
 
 struct QueueSingleArray<T>{
