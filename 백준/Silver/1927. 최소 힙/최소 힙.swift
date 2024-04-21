@@ -119,13 +119,16 @@ struct FileIO {
 
 var file = FileIO()
 var minHeap = Heap<Int>(<)
+var answer = ""
 for _ in 0..<file.readInt(){
     let n = file.readInt()
     switch n{
-    case 0: print( minHeap.delete() ?? 0 )
+    case 0: answer += "\(minHeap.delete() ?? 0 )\n"
     default: minHeap.insert(element: n)
     }
 }
+print(answer)
+
 
 //> 최대힙
 //> 최소힙
