@@ -26,6 +26,7 @@
 |2810. 컵홀더|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2810.%E2%80%85%EC%BB%B5%ED%99%80%EB%8D%94/README.md)|
 |4796. 캠핑|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4796.%E2%80%85%EC%BA%A0%ED%95%91/README.md)|
 |5585. 거스름돈|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5585.%E2%80%85%EA%B1%B0%EC%8A%A4%EB%A6%84%EB%8F%88/README.md)|
+|9329. 패스트 푸드 상금|[링크](./%EB%B0%B1%EC%A4%80/Bronze/9329.%E2%80%85%ED%8C%A8%EC%8A%A4%ED%8A%B8%E2%80%85%ED%91%B8%EB%93%9C%E2%80%85%EC%83%81%EA%B8%88/README.md)|
 ### 🚀 Gold
 | 문제번호 | 링크 |
 | ----- | ----- |
