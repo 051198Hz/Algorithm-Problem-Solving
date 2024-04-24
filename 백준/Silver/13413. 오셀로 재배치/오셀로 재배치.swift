@@ -128,12 +128,10 @@ for _ in 0..<file.readInt(){
     var toB = 0
     let currentWB = file.readLine()
     let targetWB = file.readLine()
-    for i in currentWB.indices{
-        if currentWB[i] != targetWB[i]{
-            switch currentWB[i]{
-            case "W": toB += 1
-            default: toW += 1
-            }
+    for i in currentWB.indices where currentWB[i] != targetWB[i]{
+        switch currentWB[i]{
+        case "W": toB += 1
+        default: toW += 1
         }
     }
     answer += "\(toW > toB ? toW : toB)\n"
