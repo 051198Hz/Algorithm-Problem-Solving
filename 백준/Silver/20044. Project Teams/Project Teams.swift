@@ -122,27 +122,13 @@ struct FileIO {
 var file = FileIO()
 
 let teamNumber = file.readInt()
-
-var teamAbilities = [Int](repeating: 0, count: teamNumber)
-var teamMemberNumber = [Int](repeating: 0, count: teamNumber)
-var abilities = file.readIntArray(teamNumber*2).sorted{ $0 > $1 }
-var currentTeamNumber = 0
-var memberLimit = 1
+var abilities = file.readIntArray(teamNumber*2).sorted()
+var answer = Int.max
 for i in abilities.indices{
-    if (teamNumber*2) / (i+1) == 1{
-        memberLimit = 2
-    }
-//    let ability = file.readInt()
-    var min = Int.max
-    var minIndex = 0
-    for j in 0..<teamNumber{
-        if min > teamAbilities[j] && teamMemberNumber[j] < memberLimit{
-            min = teamAbilities[j]
-            minIndex = j
-        }
-    }
-    teamAbilities[minIndex] += abilities[i]
-    teamMemberNumber[minIndex] += 1
+    answer = min(answer, abilities[i] + abilities[teamNumber*2-1-i])
 }
-
-print(teamAbilities.min()!)
+print(answer)
+//즉, 코딩역량이 가장 고르게 분포되려면,
+//(가장 코딩역량이 높은 학생, 가장 코딩역량이 낮은 학생),
+//(2번째로 코딩역량이 높은 학생, 2번째로 코딩역량이 낮은 학생)
+//두 값이 합들이 가장 균등한 분포를 가지려면, 1번째로 높은 + 1번째로 낮은 쌍이다.
