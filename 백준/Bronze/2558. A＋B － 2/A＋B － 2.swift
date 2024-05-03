@@ -1,2 +1,1 @@
-let (a,b) = (Int(readLine()!)!, Int(readLine()!)!)
-print(a+b)
+print(Int(readLine()!)!+Int(readLine()!)!)
