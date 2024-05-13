@@ -1,4 +1,3 @@
-var answer = ""
 while let n = readLine(), let number = Int(n){
     var onlyOne = 1
     var count = 1
