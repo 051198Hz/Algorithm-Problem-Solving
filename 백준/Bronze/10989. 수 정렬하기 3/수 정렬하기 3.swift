@@ -109,21 +109,13 @@ struct FileIO {
 
 var file = FileIO()
 let count = file.readInt()
-var numbers : [Int:Int] = [:]
+var numbers = Array<Int>(repeating:0, count: 10001)
 var answer = ""
-var minNumber = Int.max
-var maxNumber = Int.min
 for _ in 0..<count{
-    let key = file.readInt()
-    minNumber = min(minNumber, key)
-    maxNumber = max(maxNumber, key)
-    numbers.updateValue((numbers[key] ?? 0) + 1, forKey: key)
+    let i = file.readInt()
+    numbers[i] += 1
 }
-for i in minNumber...maxNumber{
-    if let item = numbers[i]{
-        for j in 0..<item{
-            answer += "\(i)\n"
-        }
-    }
+for i in numbers.indices where numbers[i] > 0{
+    answer += String(repeating: "\(i)\n", count: numbers[i])
 }
 print(answer)
