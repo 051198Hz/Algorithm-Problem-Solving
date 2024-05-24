@@ -137,9 +137,10 @@ let number = file.readInt()
 struct IncreaseSeq{
     var length = Int.min
     let seq = file.readIntArray(number)
-    lazy var dp = seq
+    var dp = [Int](repeating: 0, count: number)
     mutating func getMaxLength()->Int{
         for i in seq.indices{
+            dp[i] = seq[i]
             for j in seq.indices where j < i{
                 if seq[j] < seq[i]{ dp[i] = max(dp[i], dp[j] + seq[i] ) }
             }
