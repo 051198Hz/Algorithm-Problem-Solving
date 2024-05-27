@@ -184,6 +184,7 @@
 |9372. 상근이의 여행|[링크](./%EB%B0%B1%EC%A4%80/Silver/9372.%E2%80%85%EC%83%81%EA%B7%BC%EC%9D%B4%EC%9D%98%E2%80%85%EC%97%AC%ED%96%89/README.md)|
 |9440. 숫자 더하기|[링크](./%EB%B0%B1%EC%A4%80/Silver/9440.%E2%80%85%EC%88%AB%EC%9E%90%E2%80%85%EB%8D%94%ED%95%98%EA%B8%B0/README.md)|
 |9461. 파도반 수열|[링크](./%EB%B0%B1%EC%A4%80/Silver/9461.%E2%80%85%ED%8C%8C%EB%8F%84%EB%B0%98%E2%80%85%EC%88%98%EC%97%B4/README.md)|
+|9465. 스티커|[링크](./%EB%B0%B1%EC%A4%80/Silver/9465.%E2%80%85%EC%8A%A4%ED%8B%B0%EC%BB%A4/README.md)|
 ### 🚀 Unrated
 | 문제번호 | 링크 |
 | ----- | ----- |
