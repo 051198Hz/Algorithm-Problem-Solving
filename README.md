@@ -37,6 +37,7 @@
 |2810. 컵홀더|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2810.%E2%80%85%EC%BB%B5%ED%99%80%EB%8D%94/README.md)|
 |2947. 나무 조각|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2947.%E2%80%85%EB%82%98%EB%AC%B4%E2%80%85%EC%A1%B0%EA%B0%81/README.md)|
 |31610. 飴の袋詰め （Drops Packing）|[링크](./%EB%B0%B1%EC%A4%80/Bronze/31610.%E2%80%85%E9%A3%B4%E3%81%AE%E8%A2%8B%E8%A9%B0%E3%82%81%E2%80%85%EF%BC%88Drops%E2%80%85Packing%EF%BC%89/%E9%A3%B4%E3%81%AE%E8%A2%8B%E8%A9%B0%E3%82%81%E2%80%85%EF%BC%88Drops%E2%80%85Packing%EF%BC%89.swift)|
+|31614. 分 （Minutes）|[링크](./%EB%B0%B1%EC%A4%80/Bronze/31614.%E2%80%85%E5%88%86%E2%80%85%EF%BC%88Minutes%EF%BC%89/README.md)|
 |31654. Adding Trouble|[링크](./%EB%B0%B1%EC%A4%80/Bronze/31654.%E2%80%85Adding%E2%80%85Trouble/README.md)|
 |4101. 크냐？|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4101.%E2%80%85%ED%81%AC%EB%83%90%EF%BC%9F/README.md)|
 |4796. 캠핑|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4796.%E2%80%85%EC%BA%A0%ED%95%91/README.md)|
