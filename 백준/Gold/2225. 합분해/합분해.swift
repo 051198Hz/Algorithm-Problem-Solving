@@ -6,7 +6,7 @@ for i in 0...k{
 }
 for i in 1...n{
     for j in 1...k{
-        for t in 0...n{
+        for t in 0...i{
             dp[i][j] += dp[t][j-1] % 1000000000
         }
         dp[i][j] %= 1000000000
