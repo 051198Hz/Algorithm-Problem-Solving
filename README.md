@@ -71,6 +71,7 @@
 |2812. 크게 만들기|[링크](./%EB%B0%B1%EC%A4%80/Gold/2812.%E2%80%85%ED%81%AC%EA%B2%8C%E2%80%85%EB%A7%8C%EB%93%A4%EA%B8%B0/README.md)|
 |5430. AC|[링크](./%EB%B0%B1%EC%A4%80/Gold/5430.%E2%80%85AC/README.md)|
 |7576. 토마토|[링크](./%EB%B0%B1%EC%A4%80/Gold/7576.%E2%80%85%ED%86%A0%EB%A7%88%ED%86%A0/README.md)|
+|9251. LCS|[링크](./%EB%B0%B1%EC%A4%80/Gold/9251.%E2%80%85LCS/README.md)|
 ### 🚀 Platinum
 | 문제번호 | 링크 |
 | ----- | ----- |
