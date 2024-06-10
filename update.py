@@ -37,7 +37,7 @@ def main():
             continue
             
         if directory not in directories:
-            if directory in ["백준", "프로그래머스","goormlevel"]:
+            if directory in ["백준", "프로그래머스"]:
                 content += "## 📚 {}\n".format(directory)
             elif directory in ["goormlevel"]:
                 content += "## 📚 {}\n".format(구름LEVEL)
