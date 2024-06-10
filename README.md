@@ -3,6 +3,10 @@
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/generate_badge?boj=peeper9322)](https://solved.ac/peeper9322)
 ## 📚 goormlevel
+### 🚀 173089
+| 문제번호 | 링크 |
+| ----- | ----- |
+|1. 정수의 길이|[링크](./goormlevel/173089/1.%E2%80%85%EC%A0%95%EC%88%98%EC%9D%98%E2%80%85%EA%B8%B8%EC%9D%B4/README.md)|
 ### 🚀 194193
 | 문제번호 | 링크 |
 | ----- | ----- |
