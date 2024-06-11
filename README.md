@@ -3,6 +3,10 @@
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/generate_badge?boj=peeper9322)](https://solved.ac/peeper9322)
 ## 📚 goormlevel
+### 🚀 171306
+| 문제번호 | 링크 |
+| ----- | ----- |
+|1. 거꾸로 수 비교|[링크](./goormlevel/171306/1.%E2%80%85%EA%B1%B0%EA%BE%B8%EB%A1%9C%E2%80%85%EC%88%98%E2%80%85%EB%B9%84%EA%B5%90/README.md)|
 ### 🚀 173089
 | 문제번호 | 링크 |
 | ----- | ----- |
