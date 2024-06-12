@@ -3,6 +3,10 @@
 [![Solved.ac
 프로필](http://mazassumnida.wtf/api/generate_badge?boj=peeper9322)](https://solved.ac/peeper9322)
 ## 📚 goormlevel
+### 🚀 167345
+| 문제번호 | 링크 |
+| ----- | ----- |
+|1. 단풍나무|[링크](./goormlevel/167345/1.%E2%80%85%EB%8B%A8%ED%92%8D%EB%82%98%EB%AC%B4/README.md)|
 ### 🚀 171306
 | 문제번호 | 링크 |
 | ----- | ----- |
