@@ -139,6 +139,7 @@
 |31611. 火曜日 （Tuesday）|[링크](./%EB%B0%B1%EC%A4%80/Bronze/31611.%E2%80%85%E7%81%AB%E6%9B%9C%E6%97%A5%E2%80%85%EF%BC%88Tuesday%EF%BC%89/%E7%81%AB%E6%9B%9C%E6%97%A5%E2%80%85%EF%BC%88Tuesday%EF%BC%89.swift)|
 |31614. 分 （Minutes）|[링크](./%EB%B0%B1%EC%A4%80/Bronze/31614.%E2%80%85%E5%88%86%E2%80%85%EF%BC%88Minutes%EF%BC%89/README.md)|
 |31654. Adding Trouble|[링크](./%EB%B0%B1%EC%A4%80/Bronze/31654.%E2%80%85Adding%E2%80%85Trouble/Adding%E2%80%85Trouble.swift)|
+|3733. Shares|[링크](./%EB%B0%B1%EC%A4%80/Bronze/3733.%E2%80%85Shares/README.md)|
 |4101. 크냐？|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4101.%E2%80%85%ED%81%AC%EB%83%90%EF%BC%9F/README.md)|
 |4796. 캠핑|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4796.%E2%80%85%EC%BA%A0%ED%95%91/README.md)|
 |4999. 아！|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4999.%E2%80%85%EC%95%84%EF%BC%81/README.md)|
