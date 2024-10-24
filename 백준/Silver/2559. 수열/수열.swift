@@ -4,17 +4,11 @@ let nk = readLine()!.split{ $0 == " " }.map{ Int(String($0))! }
 let n = nk[0], k = nk[1]
 
 var cSum = [0]
-let numbers: [Int] = readLine()!.split{ $0 == " " }.map{
-    let number = Int(String($0))!
-    let k = cSum.last!
-    cSum.append(k + number)
-    return number
-}
+let numbers: [Int] = readLine()!.split{ $0 == " " }.map{  Int(String($0))! }
+numbers.forEach{ cSum.append(cSum.last! + $0) }
+
 var maxSum = Int.min
 
-for i in k..<cSum.count {
-    maxSum = max(maxSum, cSum[i] - cSum[i-k])
-}
+let answer = (k..<cSum.count).map{ i in max(maxSum, cSum[i] - cSum[i-k]) }.max()!
 
-print(maxSum)
-
+print(answer)
