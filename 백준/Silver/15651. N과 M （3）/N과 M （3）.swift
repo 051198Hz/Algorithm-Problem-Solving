@@ -2,7 +2,7 @@ let mn = readLine()!.split{ $0 == " " }.map { Int(String($0))! }
 
 var answer = ""
 
-func combination(_ s: [Int], _ selected: String, limit: Int, count: Int) {
+func combination(_ s: String, _ selected: String, limit: Int, count: Int) {
     if count == limit {
         answer.write(selected + "\n")
         return
@@ -11,6 +11,6 @@ func combination(_ s: [Int], _ selected: String, limit: Int, count: Int) {
         combination(s, selected + "\(i) ", limit: limit, count: count+1)
     }
 }
-
-combination(Array(1...mn[0]),"", limit: mn[1], count: 0)
+let s = (1...mn[0]).map{ String($0) }.reduce("",+)
+combination( s,"", limit: mn[1], count: 0)
 print(answer)
