@@ -1,5 +1,3 @@
-import Foundation
-
 typealias Pos = (x: Int, y: Int)
 var emptyPlaceList = [Pos]()
 var sudokuBoard: [[Int]] = (0..<9).map { _ in
@@ -36,21 +34,22 @@ func check(_ x: Int, _ y: Int, number: Int) -> Bool {
     return true
 }
 
-func solveSudoku(x: Int, y: Int, _ count: Int) {
+func solveSudoku(_ count: Int) -> Bool {
+    if count >= emptyPlaceList.count {
+        let answer = sudokuBoard.map {
+            return $0.map { "\($0)" }.joined(separator: " ")
+        }.joined(separator: "\n")
+        print(answer)
+        return true
+    }
+    let x = emptyPlaceList[count].x, y = emptyPlaceList[count].y
     for i in 1...9 {
         if check(x, y, number: i) {
             sudokuBoard[y][x] = i
-            if count >= emptyPlaceList.count {
-                let answer = sudokuBoard.map {
-                    return $0.map { "\($0)" }.joined(separator: " ")
-                }.joined(separator: "\n")
-                print(answer)
-                exit(0)
-            }
-            let pos = emptyPlaceList[count]
-            solveSudoku(x: pos.x, y: pos.y, count+1)
+            if solveSudoku(count+1) { return true }
             sudokuBoard[y][x] = 0
         }
     }
+    return false
 }
-solveSudoku(x: emptyPlaceList[0].x, y: emptyPlaceList[0].y, 1)
+solveSudoku(0)
