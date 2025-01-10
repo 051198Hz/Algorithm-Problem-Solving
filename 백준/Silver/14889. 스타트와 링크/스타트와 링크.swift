@@ -1,3 +1,5 @@
+import Foundation
+
 let n = Int(readLine()!)!
 let playerPower = (0..<n).map { _ in
     readLine()!.split { $0 == " "}.map{ Int(String($0))! }
@@ -17,8 +19,13 @@ func pick(_ idx: Int, _ count: Int) {
                 }
             }
         }
-        if differ > abs(currentPower[0] - currentPower[1]) {
-            differ = abs(currentPower[0] - currentPower[1])
+        let curDiff = abs(currentPower[0] - currentPower[1])
+        if curDiff == 0 {
+            print("0")
+            exit(0)
+        }
+        if differ > curDiff {
+            differ = curDiff
         }
         return
     }
