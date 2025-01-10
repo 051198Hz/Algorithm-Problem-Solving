@@ -1,7 +1,7 @@
 var dp = [[[Int]]](repeating: [[Int]](repeating: [Int](repeating: 0, count: 21), count: 21), count: 21)
+var answer = ""
 
 while true {
-    var answer = ""
     var abc = readLine()!.split { $0 == " " }.map{ Int(String($0))! }
     guard abc != [-1, -1, -1] else { break }
     answer.write("w(\(abc[0]), \(abc[1]), \(abc[2])) = ")
@@ -27,6 +27,6 @@ while true {
             }
         }
     }
-    answer.write("\(dp[abc[0]][abc[1]][abc[2]])")
-    print(answer)
+    answer.write("\(dp[abc[0]][abc[1]][abc[2]])\n")
 }
+print(answer)
