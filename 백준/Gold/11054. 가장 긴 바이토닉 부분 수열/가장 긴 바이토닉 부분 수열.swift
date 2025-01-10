@@ -12,10 +12,5 @@ for i in s.indices {
         }
     }
 }
-var answer = Int.min
-for i in 0..<n {
-    if answer < dp1[i] + dp2[i] {
-        answer = dp1[i] + dp2[i]
-    }
-}
-print(answer-1)
+var answer = (0..<n).map { dp1[$0] + dp2[$0] }.max()! - 1
+print(answer)
