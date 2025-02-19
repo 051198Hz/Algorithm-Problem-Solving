@@ -1,0 +1,1 @@
+print((0..<3).map { _ in Int(readLine()!)! }.sorted()[1])
