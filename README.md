@@ -192,6 +192,7 @@
 |4796. 캠핑|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4796.%E2%80%85%EC%BA%A0%ED%95%91/%EC%BA%A0%ED%95%91.cc)|
 |4999. 아！|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4999.%E2%80%85%EC%95%84%EF%BC%81/%EC%95%84%EF%BC%81.swift)|
 |5339. 콜센터|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5339.%E2%80%85%EC%BD%9C%EC%84%BC%ED%84%B0/%EC%BD%9C%EC%84%BC%ED%84%B0.swift)|
+|5341. Pyramids|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5341.%E2%80%85Pyramids/Pyramids.swift)|
 |5522. 카드 게임|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5522.%E2%80%85%EC%B9%B4%EB%93%9C%E2%80%85%EA%B2%8C%EC%9E%84/%EC%B9%B4%EB%93%9C%E2%80%85%EA%B2%8C%EC%9E%84.swift)|
 |5585. 거스름돈|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5585.%E2%80%85%EA%B1%B0%EC%8A%A4%EB%A6%84%EB%8F%88/%EA%B1%B0%EC%8A%A4%EB%A6%84%EB%8F%88.cc)|
 |5622. 다이얼|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5622.%E2%80%85%EB%8B%A4%EC%9D%B4%EC%96%BC/%EB%8B%A4%EC%9D%B4%EC%96%BC.swift)|
