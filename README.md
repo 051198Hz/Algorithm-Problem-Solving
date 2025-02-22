@@ -198,6 +198,7 @@
 |5622. 다이얼|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5622.%E2%80%85%EB%8B%A4%EC%9D%B4%EC%96%BC/%EB%8B%A4%EC%9D%B4%EC%96%BC.swift)|
 |6840. Who is in the middle？|[링크](./%EB%B0%B1%EC%A4%80/Bronze/6840.%E2%80%85Who%E2%80%85is%E2%80%85in%E2%80%85the%E2%80%85middle%EF%BC%9F/Who%E2%80%85is%E2%80%85in%E2%80%85the%E2%80%85middle%EF%BC%9F.swift)|
 |7891. Can you add this？|[링크](./%EB%B0%B1%EC%A4%80/Bronze/7891.%E2%80%85Can%E2%80%85you%E2%80%85add%E2%80%85this%EF%BC%9F/Can%E2%80%85you%E2%80%85add%E2%80%85this%EF%BC%9F.swift)|
+|8370. Plane|[링크](./%EB%B0%B1%EC%A4%80/Bronze/8370.%E2%80%85Plane/Plane.swift)|
 |8393. 합|[링크](./%EB%B0%B1%EC%A4%80/Bronze/8393.%E2%80%85%ED%95%A9/%ED%95%A9.swift)|
 |9329. 패스트 푸드 상금|[링크](./%EB%B0%B1%EC%A4%80/Bronze/9329.%E2%80%85%ED%8C%A8%EC%8A%A4%ED%8A%B8%E2%80%85%ED%91%B8%EB%93%9C%E2%80%85%EC%83%81%EA%B8%88/%ED%8C%A8%EC%8A%A4%ED%8A%B8%E2%80%85%ED%91%B8%EB%93%9C%E2%80%85%EC%83%81%EA%B8%88.swift)|
 |9653. 스타워즈 로고|[링크](./%EB%B0%B1%EC%A4%80/Bronze/9653.%E2%80%85%EC%8A%A4%ED%83%80%EC%9B%8C%EC%A6%88%E2%80%85%EB%A1%9C%EA%B3%A0/%EC%8A%A4%ED%83%80%EC%9B%8C%EC%A6%88%E2%80%85%EB%A1%9C%EA%B3%A0.swift)|
