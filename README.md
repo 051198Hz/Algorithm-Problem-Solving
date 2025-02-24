@@ -188,6 +188,7 @@
 |31614. 分 （Minutes）|[링크](./%EB%B0%B1%EC%A4%80/Bronze/31614.%E2%80%85%E5%88%86%E2%80%85%EF%BC%88Minutes%EF%BC%89/%E5%88%86%E2%80%85%EF%BC%88Minutes%EF%BC%89.swift)|
 |31654. Adding Trouble|[링크](./%EB%B0%B1%EC%A4%80/Bronze/31654.%E2%80%85Adding%E2%80%85Trouble/Adding%E2%80%85Trouble.swift)|
 |32314. Christmas Tree Adapter|[링크](./%EB%B0%B1%EC%A4%80/Bronze/32314.%E2%80%85Christmas%E2%80%85Tree%E2%80%85Adapter/Christmas%E2%80%85Tree%E2%80%85Adapter.swift)|
+|32326. Conveyor Belt Sushi|[링크](./%EB%B0%B1%EC%A4%80/Bronze/32326.%E2%80%85Conveyor%E2%80%85Belt%E2%80%85Sushi/README.md)|
 |3733. Shares|[링크](./%EB%B0%B1%EC%A4%80/Bronze/3733.%E2%80%85Shares/README.md)|
 |4101. 크냐？|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4101.%E2%80%85%ED%81%AC%EB%83%90%EF%BC%9F/%ED%81%AC%EB%83%90%EF%BC%9F.swift)|
 |4796. 캠핑|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4796.%E2%80%85%EC%BA%A0%ED%95%91/%EC%BA%A0%ED%95%91.cc)|
