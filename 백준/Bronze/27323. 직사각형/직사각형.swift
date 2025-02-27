@@ -1,0 +1,1 @@
+print((0..<2).map { _ in Int(readLine()!)! }.reduce(1,*))
