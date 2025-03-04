@@ -204,6 +204,7 @@
 |5585. 거스름돈|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5585.%E2%80%85%EA%B1%B0%EC%8A%A4%EB%A6%84%EB%8F%88/README.md)|
 |5622. 다이얼|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5622.%E2%80%85%EB%8B%A4%EC%9D%B4%EC%96%BC/%EB%8B%A4%EC%9D%B4%EC%96%BC.swift)|
 |6840. Who is in the middle？|[링크](./%EB%B0%B1%EC%A4%80/Bronze/6840.%E2%80%85Who%E2%80%85is%E2%80%85in%E2%80%85the%E2%80%85middle%EF%BC%9F/README.md)|
+|6966. Cross－Number Puzzle|[링크](./%EB%B0%B1%EC%A4%80/Bronze/6966.%E2%80%85Cross%EF%BC%8DNumber%E2%80%85Puzzle/README.md)|
 |7891. Can you add this？|[링크](./%EB%B0%B1%EC%A4%80/Bronze/7891.%E2%80%85Can%E2%80%85you%E2%80%85add%E2%80%85this%EF%BC%9F/README.md)|
 |8370. Plane|[링크](./%EB%B0%B1%EC%A4%80/Bronze/8370.%E2%80%85Plane/README.md)|
 |8393. 합|[링크](./%EB%B0%B1%EC%A4%80/Bronze/8393.%E2%80%85%ED%95%A9/README.md)|
