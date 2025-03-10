@@ -178,6 +178,7 @@
 |2609. 최대공약수와 최소공배수|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2609.%E2%80%85%EC%B5%9C%EB%8C%80%EA%B3%B5%EC%95%BD%EC%88%98%EC%99%80%E2%80%85%EC%B5%9C%EC%86%8C%EA%B3%B5%EB%B0%B0%EC%88%98/README.md)|
 |26209. Intercepting Information|[링크](./%EB%B0%B1%EC%A4%80/Bronze/26209.%E2%80%85Intercepting%E2%80%85Information/README.md)|
 |26307. Correct|[링크](./%EB%B0%B1%EC%A4%80/Bronze/26307.%E2%80%85Correct/README.md)|
+|26489. Gum Gum for Jay Jay|[링크](./%EB%B0%B1%EC%A4%80/Bronze/26489.%E2%80%85Gum%E2%80%85Gum%E2%80%85for%E2%80%85Jay%E2%80%85Jay/README.md)|
 |2720. 세탁소 사장 동혁|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2720.%E2%80%85%EC%84%B8%ED%83%81%EC%86%8C%E2%80%85%EC%82%AC%EC%9E%A5%E2%80%85%EB%8F%99%ED%98%81/README.md)|
 |27294. 몇개고？|[링크](./%EB%B0%B1%EC%A4%80/Bronze/27294.%E2%80%85%EB%AA%87%EA%B0%9C%EA%B3%A0%EF%BC%9F/README.md)|
 |27323. 직사각형|[링크](./%EB%B0%B1%EC%A4%80/Bronze/27323.%E2%80%85%EC%A7%81%EC%82%AC%EA%B0%81%ED%98%95/README.md)|
