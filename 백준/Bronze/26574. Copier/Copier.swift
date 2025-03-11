@@ -1,0 +1,1 @@
+(0..<Int(readLine()!)!).forEach { _ in print(String(repeating: readLine()!+" ", count: 2).dropLast()) }
