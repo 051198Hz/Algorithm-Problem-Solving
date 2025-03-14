@@ -1,42 +1,51 @@
- import Foundation
-
-struct Belt {
-    var robot: Bool // 로봇이 있는지
-    var duration: Int // 내구도
+struct Piece {
+    init(duration: Int, hasRobot: Bool = false) {
+        self.duration = duration
+        self.hasRobot = hasRobot
+    }
+    var duration: Int
+    var hasRobot: Bool
 }
 
-let input = readLine()!.components(separatedBy:" ").map{Int($0)!}
-let N = input[0], K = input[1] // 벨트 칸 수, 내구도 0의 수용치
-let arr = readLine()!.components(separatedBy: " ").map{Int($0)!}
-var belts = [Belt]()
-for (i, x) in arr.enumerated() {
-    belts.append(Belt(robot: false, duration: x))
+let nk = readLine()!.split { $0 == " " }.map { Int(String($0))! },
+    n = nk[0],
+    k = nk[1]
+var conveyerBelt = readLine()!.split { $0 == " " }.map { Int(String($0))! }.map { Piece(duration: $0) }
+func rotateConveyer() {
+    conveyerBelt.insert(conveyerBelt.removeLast(), at: 0)
 }
-var result = 0
+var answer = 0
+var zeroBlankCount = 0
 
-while true {
-    result += 1
-    // 1
-    belts.insert(belts.removeLast(), at: 0) // 맨 마지막 벨트를 앞으로
-    if belts[N-1].robot == true { belts[N-1].robot = false }
-    // 2
-    for i in stride(from: N-2, to: -1, by: -1) { // 로봇의 이동
-        if belts[i].robot == true, belts[i+1].robot == false, belts[i+1].duration > 0 {
-            belts[i].robot = false
-            belts[i+1].robot = true
-            belts[i+1].duration -= 1
-            if i+1 == N-1 { belts[i+1].robot = false } // N인덱스에 로봇이 위치하면 바로 내려준다.
+func countZeroBlank() {
+    var count = 0
+    conveyerBelt.forEach { blank in
+        if blank.duration == 0 {
+            count += 1
         }
     }
-    // 3
-    if belts[0].robot == false && belts[0].duration > 0 {
-        belts[0].duration -= 1
-        belts[0].robot = true
-    }
-    // 4
-    let zeroCount = belts.filter{$0.duration == 0}.count
-    if zeroCount >= K {
-        break
-    }
+    zeroBlankCount = count
 }
-print(result)
+while zeroBlankCount < k {
+    answer += 1
+    rotateConveyer()
+    if conveyerBelt[n-1].hasRobot {
+        conveyerBelt[n-1].hasRobot = false
+    }
+    for i in stride(from: n-2, through: 0, by: -1) {
+        if conveyerBelt[i].hasRobot && conveyerBelt[i+1].duration >= 1 && !conveyerBelt[i+1].hasRobot {
+            conveyerBelt[i+1].duration -= 1
+            conveyerBelt[i].hasRobot = false
+            if i == n-2 {
+                continue
+            }
+            conveyerBelt[i+1].hasRobot = true
+        }
+    }
+    if conveyerBelt[0].hasRobot == false && conveyerBelt[0].duration > 0 {
+        conveyerBelt[0].hasRobot = true
+        conveyerBelt[0].duration -= 1
+    }
+    countZeroBlank()
+}
+print(answer)
