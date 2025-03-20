@@ -194,6 +194,7 @@
 |2869. 달팽이는 올라가고 싶다|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2869.%E2%80%85%EB%8B%AC%ED%8C%BD%EC%9D%B4%EB%8A%94%E2%80%85%EC%98%AC%EB%9D%BC%EA%B0%80%EA%B3%A0%E2%80%85%EC%8B%B6%EB%8B%A4/README.md)|
 |2908. 상수|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2908.%E2%80%85%EC%83%81%EC%88%98/README.md)|
 |2947. 나무 조각|[링크](./%EB%B0%B1%EC%A4%80/Bronze/2947.%E2%80%85%EB%82%98%EB%AC%B4%E2%80%85%EC%A1%B0%EA%B0%81/README.md)|
+|3046. R2|[링크](./%EB%B0%B1%EC%A4%80/Bronze/3046.%E2%80%85R2/README.md)|
 |31450. Everyone is a winner|[링크](./%EB%B0%B1%EC%A4%80/Bronze/31450.%E2%80%85Everyone%E2%80%85is%E2%80%85a%E2%80%85winner/Everyone%E2%80%85is%E2%80%85a%E2%80%85winner.swift)|
 |31606. 果物 （Fruit）|[링크](./%EB%B0%B1%EC%A4%80/Bronze/31606.%E2%80%85%E6%9E%9C%E7%89%A9%E2%80%85%EF%BC%88Fruit%EF%BC%89/%E6%9E%9C%E7%89%A9%E2%80%85%EF%BC%88Fruit%EF%BC%89.swift)|
 |31610. 飴の袋詰め （Drops Packing）|[링크](./%EB%B0%B1%EC%A4%80/Bronze/31610.%E2%80%85%E9%A3%B4%E3%81%AE%E8%A2%8B%E8%A9%B0%E3%82%81%E2%80%85%EF%BC%88Drops%E2%80%85Packing%EF%BC%89/README.md)|
