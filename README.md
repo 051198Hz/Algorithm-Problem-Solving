@@ -211,6 +211,7 @@
 |5339. 콜센터|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5339.%E2%80%85%EC%BD%9C%EC%84%BC%ED%84%B0/README.md)|
 |5341. Pyramids|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5341.%E2%80%85Pyramids/README.md)|
 |5522. 카드 게임|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5522.%E2%80%85%EC%B9%B4%EB%93%9C%E2%80%85%EA%B2%8C%EC%9E%84/%EC%B9%B4%EB%93%9C%E2%80%85%EA%B2%8C%EC%9E%84.swift)|
+|5532. 방학 숙제|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5532.%E2%80%85%EB%B0%A9%ED%95%99%E2%80%85%EC%88%99%EC%A0%9C/README.md)|
 |5585. 거스름돈|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5585.%E2%80%85%EA%B1%B0%EC%8A%A4%EB%A6%84%EB%8F%88/README.md)|
 |5622. 다이얼|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5622.%E2%80%85%EB%8B%A4%EC%9D%B4%EC%96%BC/%EB%8B%A4%EC%9D%B4%EC%96%BC.swift)|
 |6840. Who is in the middle？|[링크](./%EB%B0%B1%EC%A4%80/Bronze/6840.%E2%80%85Who%E2%80%85is%E2%80%85in%E2%80%85the%E2%80%85middle%EF%BC%9F/README.md)|
