@@ -4,7 +4,7 @@ let lc = readLine()!.split { $0 == " " }.map { Int(String($0))! },
     l = lc[0],
     c = lc[1]
 let cList = readLine()!.split { $0 == " " }.map { String($0) }.sorted { $0 < $1 }
-var passwordSet = Set<String>()
+var passwordSet = [String]()
 
 func makePassword(_ start: Int, _ count: Int, _ picked: String = "") {
     if count == 0 {
@@ -12,7 +12,7 @@ func makePassword(_ start: Int, _ count: Int, _ picked: String = "") {
         let isContainMoum = !moum.map { password.contains($0) }.filter { $0 == true }.isEmpty
         let isContainJaumMoreThanTwo = (jaum.map { password.contains($0) }.filter { $0 == true }.count) > 1
         if isContainMoum && isContainJaumMoreThanTwo {
-            passwordSet.insert(password)
+            passwordSet.append(password)
         }
         return
     }
@@ -21,5 +21,5 @@ func makePassword(_ start: Int, _ count: Int, _ picked: String = "") {
     }
 }
 makePassword(0, l)
-let answer = passwordSet.sorted { $0 < $1 }.joined(separator: "\n")
+let answer = passwordSet.joined(separator: "\n")
 print(answer)
