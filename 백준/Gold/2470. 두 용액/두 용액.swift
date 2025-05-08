@@ -10,7 +10,9 @@ while true {
         break
     }
     // 특성값의 합이 전보다 작으면, 특성값을 갱신한다.
-    if abs(0-(valueList[start] + valueList[end])) < abs(0-minSum) {
+    let curDiff = 0-(valueList[start] + valueList[end]) > 0 ? 0-(valueList[start] + valueList[end]) : -(0-(valueList[start] + valueList[end]))
+    let oldDiff = 0-minSum > 0 ? 0-minSum : -(0-minSum)
+    if curDiff < oldDiff {
         v1 = valueList[start]
         v2 = valueList[end]
         minSum = valueList[start] + valueList[end]
