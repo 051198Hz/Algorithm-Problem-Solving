@@ -1,32 +1,70 @@
 import Foundation
 
-struct Heap<T> {
-    private var nodes = [T]()
+public struct Heap<T> {
+    var nodes = [T]()
     
+    // Use '>' for a max-heap or '<' for a min-heap,
     private var orderCriteria: (T, T) -> Bool
-    
+
     public init(sort: @escaping (T, T) -> Bool) {
         self.orderCriteria = sort
+    }
+    
+    public init(array: [T], sort: @escaping (T, T) -> Bool) {
+        self.orderCriteria = sort
+        configureHeap(from: array)
+    }
+ 
+    private mutating func configureHeap(from array: [T]) {
+        nodes = array
+        for i in stride(from: (nodes.count/2-1), through: 0, by: -1) {
+            shiftDown(i)
+        }
+    }
+    
+    public var isEmpty: Bool {
+        return nodes.isEmpty
     }
     
     public var count: Int {
         return nodes.count
     }
     
+    @inline(__always) internal func parentIndex(ofIndex i: Int) -> Int {
+        return (i - 1) / 2
+    }
+    
+    @inline(__always) internal func leftChildIndex(ofIndex i: Int) -> Int {
+        return 2*i + 1
+    }
+
+    @inline(__always) internal func rightChildIndex(ofIndex i: Int) -> Int {
+        return 2*i + 2
+    }
+
     public func peek() -> T? {
         return nodes.first
     }
-    
-    func isEmpty() -> Bool {
-        return nodes.isEmpty
-    }
-    
+
     public mutating func insert(_ value: T) {
         nodes.append(value)
         shiftUp(nodes.count - 1)
     }
-    
-    public mutating func remove() -> T? {
+
+    public mutating func insert<S: Sequence>(_ sequence: S) where S.Iterator.Element == T {
+        for value in sequence {
+            insert(value)
+        }
+    }
+
+    public mutating func replace(index i: Int, value: T) {
+        guard i < nodes.count else { return }
+        
+        remove(at: i)
+        insert(value)
+    }
+
+    @discardableResult public mutating func remove() -> T? {
         guard !nodes.isEmpty else { return nil }
         
         if nodes.count == 1 {
@@ -39,35 +77,22 @@ struct Heap<T> {
         }
     }
     
-    public mutating func remove(at index: Int) -> T? {
+    @discardableResult public mutating func remove(at index: Int) -> T? {
         guard index < nodes.count else { return nil }
         
-        let lastIndex = nodes.count-1
-        if index != lastIndex {
-            nodes.swapAt(index, lastIndex)
-            shiftDown(from: index, until: lastIndex)
+        let size = nodes.count - 1
+        if index != size {
+            nodes.swapAt(index, size)
+            shiftDown(from: index, until: size)
             shiftUp(index)
         }
-        
         return nodes.removeLast()
     }
-    
-    private func parentIndex(ofIndex i: Int) -> Int {
-        return (i - 1) / 2
-    }
-    
-    private func leftChildIndex(ofIndex i: Int) -> Int {
-        return 2*i + 1
-    }
-    
-    private func rightChildIndex(ofIndex i: Int) -> Int {
-        return 2*i + 2
-    }
-    
-    private mutating func shiftUp(_ index: Int) {
+
+    internal mutating func shiftUp(_ index: Int) {
         var childIndex = index
         let child = nodes[childIndex]
-        var parentIndex = self.parentIndex(ofIndex: index)
+        var parentIndex = self.parentIndex(ofIndex: childIndex)
         
         while childIndex > 0 && orderCriteria(child, nodes[parentIndex]) {
             nodes[childIndex] = nodes[parentIndex]
@@ -77,11 +102,11 @@ struct Heap<T> {
         
         nodes[childIndex] = child
     }
-    
-    private mutating func shiftDown(from index: Int, until endIndex: Int) {
+
+    internal mutating func shiftDown(from index: Int, until endIndex: Int) {
         let leftChildIndex = self.leftChildIndex(ofIndex: index)
         let rightChildIndex = leftChildIndex + 1
-        
+   
         var first = index
         if leftChildIndex < endIndex && orderCriteria(nodes[leftChildIndex], nodes[first]) {
             first = leftChildIndex
@@ -95,60 +120,64 @@ struct Heap<T> {
         shiftDown(from: first, until: endIndex)
     }
     
-    private mutating func shiftDown(_ index: Int) {
+    internal mutating func shiftDown(_ index: Int) {
         shiftDown(from: index, until: nodes.count)
     }
-    
 }
 
-class FileIO {
-    @inline(__always) private var buffer: [UInt8] = Array(FileHandle.standardInput.readDataToEndOfFile()) + [0], byteIdx = 0
-    
-    @inline(__always) private func readByte() -> UInt8 {
-        defer { byteIdx += 1 }
-        return buffer.withUnsafeBufferPointer { $0[byteIdx] }
+// MARK: - Searching
+extension Heap where T: Equatable {
+    public func index(of node: T) -> Int? {
+        return nodes.firstIndex(where: { $0 == node })
     }
     
-    @inline(__always) func readInt() -> Int {
-        var number = 0, byte = readByte(), isNegative = false
-        while byte == 10 || byte == 32 { byte = readByte() }
-        if byte == 45 { byte = readByte(); isNegative = true }
-        while 48...57 ~= byte { number = number * 10 + Int(byte - 48); byte = readByte() }
-        return number * (isNegative ? -1 : 1)
+    @discardableResult public mutating func remove(node: T) -> T? {
+        if let index = index(of: node) {
+            return remove(at: index)
+        }
+        return nil
     }
 }
 
+var buffer: [UInt8] = Array(FileHandle.standardInput.readDataToEndOfFile()), byteIdx = 0; buffer.append(0)
 
-//첫째 줄에 문제의 수 N(1 ≤ N ≤ 32,000)과 먼저 푸는 것이 좋은 문제에 대한 정보의 개수 M(1 ≤ M ≤ 100,000)이 주어진다.
-//둘째 줄부터 M개의 줄에 걸쳐 두 정수의 순서쌍 A,B가 빈칸을 사이에 두고 주어진다. 이는 A번 문제는 B번 문제보다 먼저 푸는 것이 좋다는 의미이다.
-let io = FileIO()
+@inline(__always) func readByte() -> UInt8 {
+    defer { byteIdx += 1 }
+    return buffer.withUnsafeBufferPointer { $0[byteIdx] }
+}
 
-let n = io.readInt(),
-    m = io.readInt()
+@inline(__always) func readInt() -> Int {
+    var number = 0, byte = readByte(), isNegative = false
+    while byte == 10 || byte == 32 { byte = readByte() }
+    if byte == 45 { byte = readByte(); isNegative = true }
+    while 48...57 ~= byte { number = number * 10 + Int(byte - 48); byte = readByte() }
+    return number * (isNegative ? -1 : 1)
+}
 
-var indegreeList = [Int](repeating: 0, count: n+1)
-var graph = [[Int]](repeating: [Int](), count: n+1)
+var minHeap = Heap(array: [Int](), sort: <)
+let N = readInt()
+let M = readInt()
+var nodes = Array(repeating: [Int](), count: N+1)
+var inDegree = Array(repeating: 0, count: N+1)
+for _ in 0..<M {
+    let A = readInt()
+    let B = readInt()
+    nodes[A].append(B)
+    inDegree[B] += 1
+}
+
 var answer = ""
+var queue = [Int]()
+var front = 0
+for i in 1...N where inDegree[i] == 0 { minHeap.insert(i) }
 
-(0..<m).forEach { _ in
-    let a = io.readInt()
-    let b = io.readInt() //0부터 시작하는게 아닌, 1부터 시작하는 노드 중 하나
-    indegreeList[b] += 1
-    graph[a].append(b)
-}
-
-var heap = Heap<Int>(sort: <) // <; 오름차순, >; 내림차순
-
-for i in 1...n {
-    if indegreeList[i] == 0 { heap.insert(i) }
-}
-
-while !heap.isEmpty() {
-    let problem = heap.remove()!
-    answer.write("\(problem) ") // == answer.append("\(problem) ")
-    for g in graph[problem] {
-        indegreeList[g] -= 1
-        if indegreeList[g] == 0 { heap.insert(g) }
+while !minHeap.isEmpty {
+    if let node = minHeap.remove() {
+        answer.write("\(node) ")
+        for next in nodes[node] {
+            inDegree[next] -= 1
+            if inDegree[next] == 0 { minHeap.insert(next) }
+        }
     }
 }
 
