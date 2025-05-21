@@ -218,6 +218,7 @@
 |4470. 줄번호|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4470.%E2%80%85%EC%A4%84%EB%B2%88%ED%98%B8/README.md)|
 |4796. 캠핑|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4796.%E2%80%85%EC%BA%A0%ED%95%91/%EC%BA%A0%ED%95%91.cc)|
 |4999. 아！|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4999.%E2%80%85%EC%95%84%EF%BC%81/README.md)|
+|5086. 배수와 약수|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5086.%E2%80%85%EB%B0%B0%EC%88%98%EC%99%80%E2%80%85%EC%95%BD%EC%88%98/README.md)|
 |5339. 콜센터|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5339.%E2%80%85%EC%BD%9C%EC%84%BC%ED%84%B0/README.md)|
 |5341. Pyramids|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5341.%E2%80%85Pyramids/Pyramids.swift)|
 |5357. Dedupe|[링크](./%EB%B0%B1%EC%A4%80/Bronze/5357.%E2%80%85Dedupe/README.md)|
