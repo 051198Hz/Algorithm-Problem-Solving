@@ -213,6 +213,7 @@
 |32314. Christmas Tree Adapter|[링크](./%EB%B0%B1%EC%A4%80/Bronze/32314.%E2%80%85Christmas%E2%80%85Tree%E2%80%85Adapter/README.md)|
 |32326. Conveyor Belt Sushi|[링크](./%EB%B0%B1%EC%A4%80/Bronze/32326.%E2%80%85Conveyor%E2%80%85Belt%E2%80%85Sushi/README.md)|
 |32458. Just Round Down|[링크](./%EB%B0%B1%EC%A4%80/Bronze/32458.%E2%80%85Just%E2%80%85Round%E2%80%85Down/README.md)|
+|32951. AI 선도대학|[링크](./%EB%B0%B1%EC%A4%80/Bronze/32951.%E2%80%85AI%E2%80%85%EC%84%A0%EB%8F%84%EB%8C%80%ED%95%99/AI%E2%80%85%EC%84%A0%EB%8F%84%EB%8C%80%ED%95%99.swift)|
 |3733. Shares|[링크](./%EB%B0%B1%EC%A4%80/Bronze/3733.%E2%80%85Shares/Shares.swift)|
 |4101. 크냐？|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4101.%E2%80%85%ED%81%AC%EB%83%90%EF%BC%9F/README.md)|
 |4470. 줄번호|[링크](./%EB%B0%B1%EC%A4%80/Bronze/4470.%E2%80%85%EC%A4%84%EB%B2%88%ED%98%B8/README.md)|
