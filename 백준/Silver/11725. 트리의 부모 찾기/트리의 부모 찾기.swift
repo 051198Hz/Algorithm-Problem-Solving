@@ -9,7 +9,7 @@ var parent = [Int](repeating: 0, count: n+1)
 var tree = [[Int]](repeating: [Int](), count: n+1)
 var queue = [1]
 
-(0..<n-1).forEach { _ in
+for _ in 0..<n-1 {
     let gv = readLine()!.split { $0 == " " }.map { Int(String($0))! },
         g = gv[0],
         v = gv[1]
@@ -27,6 +27,4 @@ while queue.count > index {
     index += 1
 }
 
-for i in 2...n {
-    print(parent[i])
-}
+print(parent[2...].map { "\($0)\n"}.joined())
