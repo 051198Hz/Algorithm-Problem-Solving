@@ -1,35 +1,49 @@
-let n = Int(readLine()!)!
-let valueList = readLine()!.split { $0 == " " }.map { Int(String($0))! }
-var minSum = Int.max,
-    v1 = Int.max,
-    v2 = Int.max
-var start = 0,
-    end = n-1
-while true {
-    if start == end {
-        break
+import Foundation
+
+class FileIO {
+    @inline(__always) private var buffer: [UInt8] = Array(FileHandle.standardInput.readDataToEndOfFile()) + [0], byteIdx = 0
+    
+    @inline(__always) private func readByte() -> UInt8 {
+        defer { byteIdx += 1 }
+        return buffer.withUnsafeBufferPointer { $0[byteIdx] }
     }
-    // 특성값의 합이 전보다 작으면, 특성값을 갱신한다.
-    let curSum = valueList[start] + valueList[end]
-    if abs(0-curSum) < abs(0-minSum) {
-        v1 = valueList[start]
-        v2 = valueList[end]
-        minSum = valueList[start] + valueList[end]
-    }
-    // 특성값의 합이 0이므로, 종료한다.
-    if minSum == 0 { break }
-    // 특성값의 합이 0보다 크므로, 큰 수를 작게 한다.
-    if curSum > 0 {
-        end -= 1
-        continue
-    }
-    // 특성값의 합이 0보다 작으므로, 작은수를 크게 한다.
-    if curSum < 0 {
-        start += 1
-        continue
+    
+    @inline(__always) func readInt() -> Int {
+        var number = 0, byte = readByte(), isNegative = false
+        while byte == 10 || byte == 32 { byte = readByte() }
+        if byte == 45 { byte = readByte(); isNegative = true }
+        while 48...57 ~= byte { number = number * 10 + Int(byte - 48); byte = readByte() }
+        return number * (isNegative ? -1 : 1)
     }
 }
-@inline(__always) func abs(_ n: Int) -> Int {
-    return n > 0 ? n : -n
+
+let io = FileIO()
+
+let n = io.readInt()
+let values = (0..<n).map { _ in io.readInt() }.sorted { $0 < $1 }
+
+var min = Int.max
+var answers = [Int]()
+
+for i in 0..<n-1 {
+    binSearch(i+1)
+    func binSearch(_ s: Int){
+        var s = s
+        var e = values.count-1
+        
+        while s <= e {
+            let mid = (s+e)/2
+            let sum = abs(values[i] + values[mid])
+            if min > sum {
+                min = sum
+                answers = [values[i], values[mid]]
+            }
+            if values[mid] >= -values[i] {
+                e = mid-1
+            } else {
+                s = mid+1
+            }
+        }
+    }
 }
-print(v1, v2)
+print( answers.sorted { $0 < $1}.map { "\($0) " }.joined())
