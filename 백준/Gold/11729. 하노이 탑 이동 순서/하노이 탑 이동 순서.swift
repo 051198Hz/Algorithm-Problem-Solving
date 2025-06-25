@@ -1,22 +1,18 @@
-import Foundation
-//int인 from, to, through를 String으로 바꾼 풀이
-let maxPlate = Int(readLine()!)!
-var hanoi = Hanoi()
-hanoi.getMoveWithCount(biggerPlate: maxPlate, from: "1", to: "3", through: "2")
-print(hanoi.count)
-print(hanoi.answer)
-struct Hanoi{
-    var count = 0
-    var answer = ""
-    mutating func getMoveWithCount(biggerPlate: Int, from: String, to: String, through: String){
-        if biggerPlate == 1{
-            answer += "\(from) \(to)\n"
-            count += 1
-            return
-        }
-        getMoveWithCount(biggerPlate: biggerPlate - 1, from: from, to: through, through: to)
-        answer += "\(from) \(to)\n"
-        count += 1
-        getMoveWithCount(biggerPlate: biggerPlate - 1, from: through, to: to, through: from)
+func hanoi(n: Int, from: String, through: String, to: String, history: inout String) {
+    count += 1
+    if n == 1 {
+        history.write("\(from) \(to)\n")
+        return
     }
+
+    hanoi(n: n-1, from: from, through: to, to: through, history: &history)
+    history.write("\(from) \(to)\n")
+    hanoi(n: n-1, from: through, through: from, to: to, history: &history)
 }
+
+let n = Int(readLine()!)!
+var count = 0
+var history = ""
+hanoi(n: n, from: "1", through: "2", to: "3", history: &history)
+
+print("\(count)\n\(history)")
