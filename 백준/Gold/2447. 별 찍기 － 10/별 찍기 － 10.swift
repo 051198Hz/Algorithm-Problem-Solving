@@ -1,23 +1,33 @@
-struct Fractal{
-    var length: Int?
-    var answer = ""
-    mutating func addLF(){ answer += "\n" }
-    mutating func drawFractal(x: Int, y: Int, length: Int){
-        if length == 1 { answer += "*" }
-        else if (x / (length/3)) % 3 == 1 && (y / (length/3)) % 3 == 1 {
-            answer += " "
-        }
-        else{
-            drawFractal(x: x, y: y, length: length/3)
-        }
+let n = Int(readLine()!)!
+var fractal = [[String]](repeating: [String](repeating: " ", count: n), count: n)
+
+func draw(fromRow: Int, fromCol: Int, size: Int) {
+    if size == 3 {
+        fractal[fromRow][fromCol] = "*"
+        fractal[fromRow][fromCol+1] = "*"
+        fractal[fromRow][fromCol+2] = "*"
+
+        fractal[fromRow+1][fromCol] = "*"
+        fractal[fromRow+1][fromCol+2] = "*"
+
+        fractal[fromRow+2][fromCol] = "*"
+        fractal[fromRow+2][fromCol+1] = "*"
+        fractal[fromRow+2][fromCol+2] = "*"
+        return
     }
+    draw(fromRow: fromRow, fromCol: fromCol, size: size/3)
+    draw(fromRow: fromRow, fromCol: fromCol + size/3, size: size/3)
+    draw(fromRow: fromRow, fromCol: fromCol + size/3 + size/3, size: size/3)
+
+    draw(fromRow: fromRow + size/3, fromCol: fromCol, size: size/3)
+    draw(fromRow: fromRow + size/3, fromCol: fromCol + size/3 + size/3, size: size/3)
+
+    draw(fromRow: fromRow + size/3 + size/3, fromCol: fromCol, size: size/3)
+    draw(fromRow: fromRow + size/3 + size/3, fromCol: fromCol + size/3, size: size/3)
+    draw(fromRow: fromRow + size/3 + size/3, fromCol: fromCol + size/3 + size/3, size: size/3)
 }
-let length = Int(readLine()!)!
-var fractal = Fractal(length: length)
-for i in 0..<length{
-    for j in 0..<length{
-        fractal.drawFractal(x: i, y: j, length: length)
-    }
-    fractal.addLF()
-}
-print(fractal.answer)
+
+draw(fromRow: 0, fromCol: 0, size: n)
+let result = fractal.map { $0.reduce(into: "") { $0.write($1) } }.joined(separator: "\n")
+
+print(result)
