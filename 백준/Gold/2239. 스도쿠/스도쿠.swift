@@ -4,41 +4,31 @@ struct Point {
 }
 
 var grid = [[Int]]()
-var rowSet = [Set<Int>]()
-var colSet = [Set<Int>](repeating: Set<Int>(), count: 9)
-
 var emptyPoints = [Point]()
 
+var rowMask = [Int](repeating: 0, count: 9)
+var colMask = [Int](repeating: 0, count: 9)
+var sectionMask = [Int](repeating: 0, count: 9)
+
+func sectionIndex(_ r: Int, _ c: Int) -> Int {
+    return (r / 3) * 3 + (c / 3)
+}
+
+// 초기화 및 입력 처리
 for i in 0..<9 {
     let line = readLine()!.map { Int(String($0))! }
-
-    for j in line.indices {
-        if line[j] == 0 { emptyPoints.append(Point(r: i, c: j)) }
-    }
     grid.append(line)
-    rowSet.append(Set(line))
-}
-
-for i in 0..<9 {
-    for j: Int in 0..<9 {
-        colSet[j].insert(grid[i][j])
-    }
-}
-
-var isVisited = [Bool](repeating: false, count: emptyPoints.count)
-
-func isUniqueInSetcion(_ r: Int, _ c: Int, _ v: Int) -> Bool {
-    let sr = r / 3
-    let sc = c / 3
-
-    for i in sr*3..<sr*3+3 {
-        for j in sc*3..<sc*3+3 {
-            if grid[i][j] == v {
-                return false
-            }
+    for j in 0..<9 {
+        let val = line[j]
+        if val == 0 {
+            emptyPoints.append(Point(r: i, c: j))
+        } else {
+            let bit = 1 << (val - 1)
+            rowMask[i] |= bit
+            colMask[j] |= bit
+            sectionMask[sectionIndex(i, j)] |= bit
         }
     }
-    return true
 }
 
 func backtracking(_ depth: Int) -> Bool {
@@ -47,34 +37,41 @@ func backtracking(_ depth: Int) -> Bool {
     }
     
     let point = emptyPoints[depth]
+    let r = point.r
+    let c = point.c
+    let s = sectionIndex(r, c)
     
-    for number in 1...9 {
-        if rowSet[point.r].contains(number) { continue }
-        if colSet[point.c].contains(number) { continue }
-        if !isUniqueInSetcion(point.r, point.c, number) { continue }
-        
-        rowSet[point.r].insert(number)
-        colSet[point.c].insert(number)
-        grid[point.r][point.c] = number
-        
-        if backtracking(depth + 1) { return true }
-        
-        grid[point.r][point.c] = 0
-        rowSet[point.r].remove(number)
-        colSet[point.c].remove(number)
+    // 1~9 중에서 놓을 수 있는 숫자 후보 계산 (비트로 표현된 숫자들 중 없는 것)
+    let used = rowMask[r] | colMask[c] | sectionMask[s]
+    let candidates = (~used) & 0x1FF  // 하위 9비트만 체크
+    
+    var bit = 1
+    for num in 1...9 {
+        if (candidates & bit) != 0 {
+            // 놓기
+            grid[r][c] = num
+            rowMask[r] |= bit
+            colMask[c] |= bit
+            sectionMask[s] |= bit
+            
+            if backtracking(depth + 1) {
+                return true
+            }
+            
+            // 되돌리기
+            grid[r][c] = 0
+            rowMask[r] &= ~bit
+            colMask[c] &= ~bit
+            sectionMask[s] &= ~bit
+        }
+        bit <<= 1
     }
     return false
 }
 
-_=backtracking(0)
+_ = backtracking(0)
 
-var answer = ""
-
+// 결과 출력
 for r in 0..<9 {
-    for c in 0..<9 {
-        answer.write("\(grid[r][c])")
-    }
-    answer.write("\n")
+    print(grid[r].map(String.init).joined())
 }
-
-print(answer)
