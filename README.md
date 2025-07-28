@@ -244,6 +244,7 @@
 | 문제번호 | 링크 |
 | ----- | ----- |
 |1005. ACM Craft|[링크](./%EB%B0%B1%EC%A4%80/Gold/1005.%E2%80%85ACM%E2%80%85Craft/README.md)|
+|10422. 괄호|[링크](./%EB%B0%B1%EC%A4%80/Gold/10422.%E2%80%85%EA%B4%84%ED%98%B8/README.md)|
 |1043. 거짓말|[링크](./%EB%B0%B1%EC%A4%80/Gold/1043.%E2%80%85%EA%B1%B0%EC%A7%93%EB%A7%90/README.md)|
 |1068. 트리|[링크](./%EB%B0%B1%EC%A4%80/Gold/1068.%E2%80%85%ED%8A%B8%EB%A6%AC/README.md)|
 |1074. Z|[링크](./%EB%B0%B1%EC%A4%80/Gold/1074.%E2%80%85Z/README.md)|
