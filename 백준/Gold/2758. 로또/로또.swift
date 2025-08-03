@@ -4,11 +4,11 @@ var output = ""
 
 var dp = [[Int]](repeating: [Int](repeating: 0, count: 2001), count: 11)
 
-dp[0][0] = 1
+(1...2000).forEach { j in dp[1][j] = 1 }
 
-for i in 1...10 {
+for i in 2...10 {
     for j in 1...2000 {
-        for l in stride(from: 0, through: j/2, by: 1) {
+        for l in stride(from: 1, through: j/2, by: 1) {
             dp[i][j] += dp[i-1][l]
         }
     }
