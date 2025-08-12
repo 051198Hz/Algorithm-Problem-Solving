@@ -24,9 +24,9 @@ let c = rcm[1]
 let m = rcm[2]
 var answer = 0
 
-var sharkDict: [Int:Shark] = [:]
+var sharkDict = [Int:Shark]()
 
-var sharkMap: [[Int]] = Array(repeating: Array(repeating: 0, count: c+1), count: r+1)
+var sharkMap = [[Int]](repeating: [Int](repeating: 0, count: c+1), count: r+1)
 
 func printSharkMap() {
     for i in sharkMap {
@@ -41,7 +41,7 @@ for _ in 0..<m {
     let sharkSpeed = input[2]
     let sharkDirec = input[3]
     let sharkSize = input[4]
-    sharkDict[sharkSize] = .init(i: sharkI, j: sharkJ, speed: sharkSpeed, direction: .init(rawValue: sharkDirec)!)
+    sharkDict[sharkSize] = Shark(i: sharkI, j: sharkJ, speed: sharkSpeed, direction: .init(rawValue: sharkDirec)!)
     sharkMap[sharkI][sharkJ] = sharkSize
 }
 
@@ -56,7 +56,7 @@ func fishing(j: Int) {
 }
 
 func moveShark() -> [[Int]] {
-    var copyMap = Array(repeating: Array(repeating: 0, count: c+1), count: r+1)
+    var copyMap = [[Int]](repeating: [Int](repeating: 0, count: c+1), count: r+1)
     for y in 1...r {
         for x in 1...c {
             if sharkMap[y][x] != 0 {
