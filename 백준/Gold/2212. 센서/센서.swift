@@ -1,29 +1,12 @@
-import Foundation
+let n = Int(readLine()!)!
+let k = Int(readLine()!)!
 
-class FileIO {
-    @inline(__always) private var buffer: [UInt8] = Array(FileHandle.standardInput.readDataToEndOfFile()) + [0], byteIdx = 0
-    
-    @inline(__always) private func readByte() -> UInt8 {
-        defer { byteIdx += 1 }
-        return buffer.withUnsafeBufferPointer { $0[byteIdx] }
-    }
-    
-    @inline(__always) func readInt() -> Int {
-        var number = 0, byte = readByte(), isNegative = false
-        while byte == 10 || byte == 32 { byte = readByte() }
-        if byte == 45 { byte = readByte(); isNegative = true }
-        while 48...57 ~= byte { number = number * 10 + Int(byte - 48); byte = readByte() }
-        return number * (isNegative ? -1 : 1)
-    }
+let sensors = readLine()!.split { $0 == " " }.map { Int(String($0))! }.sorted { $0 < $1 }
+var distances = [Int]()
+for i in 1..<n {
+    let distance = sensors[i] - sensors[i-1]
+    distances.append(distance)
 }
 
-let io = FileIO()
-
-let n = io.readInt()
-let m = io.readInt()
-
-let sensors = (0..<n).map { _ in io.readInt() }.sorted { $0 < $1 }
-let distances = (0..<sensors.count-1).map { i in sensors[i+1] - sensors[i] }.sorted { $0 < $1 }
-let answer = distances.prefix(max(distances.count - (m-1), 0)).reduce(0, +)
-
+let answer = distances.reduce(0, +) - distances.sorted { $0 > $1 }.prefix(k-1).reduce(0, +)
 print(answer)
