@@ -1,61 +1,55 @@
-let nmk = readLine()!.split { $0 == " " }.map { Int(String($0))! },
-    n = nmk[0], //행갯수
-    m = nmk[1], //열갯수
-    k = nmk[2] //부술수 있는 벽갯수
+//14442번 벽 부수고 이동하기2
 
-var map = [[Int]]()
-var isVisited = [[[Bool]]](
-    repeating: [[Bool]](repeating: [Bool](repeating: false, count: k+1), count: m),
-    count: n
-)
-var answer = Int.max
+import Foundation
 
-for _ in 0..<n {
-    let line = readLine()!.map { Int(String($0))! }
-    map.append(line)
-}
+func bfs() -> Int {
+    let dx = [1, -1, 0, 0]
+    let dy = [0, 0, 1, -1]
 
-struct Point {
-    let r: Int
-    let c: Int
-    let moveCount: Int
-    let breakCount: Int
-}
-let dc = [0, 0, -1, 1]
-let dr = [-1, 1, 0, 0]
+    var visit = [[Int]](repeating: [Int](repeating: k+1, count: m), count: n)
+    visit[0][0] = 0
 
-func bfs() {
-    let firstMove = Point(r: 0, c: 0, moveCount: 0, breakCount: 0)
-    var queue = [firstMove]
-    isVisited[0][0][0] = true
-    var index = 0
+    var queue = [(0, 0, 1)]
+    var idx = 0
 
-    while queue.count > index {
-        let currentPoint = queue[index]
-        if currentPoint.r == n-1, currentPoint.c == m-1 {
-            index += 1
-            answer = answer > currentPoint.moveCount ? currentPoint.moveCount : answer
-            return
-        }
+    while queue.count > idx {
+        let (x, y, dist) = queue[idx]
+        idx += 1
+
+        if x == n - 1 && y == m - 1 { return dist }
+
         for i in 0..<4 {
-            let nc = currentPoint.c + dc[i]
-            let nr = currentPoint.r + dr[i]
-            guard (0..<n).contains(nr), (0..<m).contains(nc) else { continue }
-            guard !isVisited[nr][nc][currentPoint.breakCount] else { continue }
-            if map[nr][nc] == 1 {
-                let nb = currentPoint.breakCount + 1
-                guard nb <= k, !isVisited[nr][nc][nb] else { continue }
-                queue.append(Point(r: nr, c: nc, moveCount: currentPoint.moveCount+1, breakCount: nb))
-                isVisited[nr][nc][nb] = true
-            } else {
-                queue.append(Point(r: nr, c: nc, moveCount: currentPoint.moveCount+1, breakCount: currentPoint.breakCount))
-                isVisited[nr][nc][currentPoint.breakCount] = true
+            let nx = x + dx[i]
+            let ny = y + dy[i]
+
+            guard (0..<n) ~= nx && (0..<m) ~= ny else { continue }
+
+            // 다음칸이 벽인지 + 현재까지 부순 벽의 갯수
+            // 현재까지 부순 벽의 갯수가 0개이고, 다음 칸이 벽이여서 1이라고 하자.
+            // 부술 벽의 visit에는 1이 할당될 것이다.
+            // 이것이 쭉 쌓이다, 다음 상황을 고려해보자.
+            // 현재까지 부순 벽의 갯수가 10개이고, 다음 칸이 벽이여서 1이라고 하자.
+            // 부술 벽의 visit에는 11이 할당될 것 이다.
+            // 다음에 이 벽이 탐색 대상으로 고려될 때, 이보다 작으면 탐색한다.
+            let brokenWallCount = graph[nx][ny] + visit[x][y] 
+
+            if brokenWallCount < visit[nx][ny] && brokenWallCount <= k {
+                visit[nx][ny] = brokenWallCount
+                queue.append((nx, ny, dist + 1))
             }
         }
-        index += 1
     }
+
+    return -1
 }
 
-bfs()
+let t = readLine()!.split { $0 == " " }.map { Int($0)! }
+let (n, m, k) = (t[0], t[1], t[2])
 
-print(answer == Int.max ? -1 : answer + 1)
+var graph = [[Int]]()
+for _ in 0..<n {
+    let line = Array(readLine()!).map { Int(String($0))! }
+    graph.append(line)
+}
+
+print(bfs())
