@@ -1,45 +1,50 @@
 let nm = readLine()!.split { $0 == " " }.map { Int(String($0))! },
     n = nm[0],
     m = nm[1]
-var knowPeepList = readLine()!.split { $0 == " " }.dropFirst().map { Int(String($0))! }
-let partyList = (0..<m).map { _ in readLine()!.split { $0 == " " }.dropFirst().map { Int(String($0))! } }
-var parentInfo = [Int](repeating: 0, count: n+1)
 
-(1...n).forEach { parentInfo[$0] = $0 }
+let knowPeeps = readLine()!.split { $0 == " " }.map { Int(String($0))! }
 
-var answer = 0
-func find(_ v: Int) -> Int {
-    //0의 부모는 0이여서 및 조건문을 만족하지 않아 0을 반환함
-    if parentInfo[v] != v {
-        parentInfo[v] = find(parentInfo[v])
+var parent = Array(0...n)
+var parties = [[Int]]()
+var answer = m
+
+if knowPeeps[0] != 0 {
+    for i in 1..<(knowPeeps.count-1) {
+        union(knowPeeps[i], knowPeeps[i+1])
     }
-    return parentInfo[v]
-}
 
-func union(_ v: Int, _ g: Int) {
-    let v = find(v)
-    let g = find(g)
-    if v < g {
-        parentInfo[g] = v
-    } else {
-        parentInfo[v] = g
+    for _ in 0..<m {
+        parties.append(readLine()!.split { $0 == " " }.map { Int(String($0))! })
     }
-}
 
-knowPeepList.forEach { parentInfo[$0] = 0 }
-
-for i in partyList.indices {
-    for j in stride(from: 0, to: partyList[i].count-1, by: 1) {
-        union(partyList[i][j], partyList[i][j+1])
+    for i in 0..<m {
+        for j in 1..<parties[i].count-1 {
+            union(parties[i][j], parties[i][j+1])
+        }
     }
-}
 
-for i in partyList.indices {
-    if let first = partyList[i].first {
-        let parent = find(first)
-        guard parent != 0 else { continue }
-        answer += 1
+    for i in 0..<m {
+        if find(parties[i][1]) == find(knowPeeps[1]) {
+            answer -= 1
+        }
     }
 }
 
 print(answer)
+
+func find(_ g: Int) -> Int {
+    if parent[g] == g { return g }
+    parent[g] = find(parent[g])
+
+    return parent[g]
+}
+
+func union(_ g: Int, _ v: Int) {
+    var parentG = find(g)
+    var parentV = find(v)
+
+    if parentV > parentG {
+        swap(&parentG, &parentV)
+    }
+    parent[parentG] = parentV
+}
