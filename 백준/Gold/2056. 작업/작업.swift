@@ -20,43 +20,36 @@ for i in 1...n {
     }
 }
 
-func foo() -> Int {
-    var queue = [Job]()
-    var time = 0
+func solution() -> Int {
+    var queue = [Int]()
+    var index = 0
+    var finishTimes = [Int](repeating: 0, count: n+1)
     for i in 1...n {
         if jobs[i].indegree == 0 {
-            queue.append(jobs[i])
+            queue.append(i)
+            finishTimes[i] = jobs[i].duration
         }
     }
-    var completedJobCount = 0
-    while completedJobCount < jobs.count-1 {
-        time += 1
-        var shouldStartJobs = [Job]()
-        for i in 0..<queue.count {
-            let job = queue[i]
-            if job.duration == 0 {
-                completedJobCount += 1
-                continue
+    
+    while queue.count > index{
+        let currentJobNumber = queue[index]
+        index += 1
+        for childJobNumber in jobs[currentJobNumber].childs {
+            // a b c -> d 일 때, c가 마지막 선행 작업일 경우
+            // 아래 코드가 큐에 넣을 때 진행되면 c의 작업시간으로만 계산됨
+            // 그러나 a나 b가 더 오랜 작업시간을 갖을 수 있으므로
+            // 매번 작업 최댓값을 갱신해줌
+            finishTimes[childJobNumber] = max(finishTimes[childJobNumber], finishTimes[currentJobNumber] + jobs[childJobNumber].duration)
+            jobs[childJobNumber].indegree -= 1
+            if jobs[childJobNumber].indegree == 0 {
+                queue.append(childJobNumber)
             }
-            let restTime = job.duration - 1
-            if restTime == 0 {
-                for childJob in job.childs {
-                    jobs[childJob].indegree -= 1
-                    if jobs[childJob].indegree == 0 {
-                        shouldStartJobs.append(jobs[childJob])
-                    }
-                }
-            }
-            queue[i].duration -= 1
-        }
-        queue.append(contentsOf: shouldStartJobs)
-        if completedJobCount < jobs.count-1 {
-            completedJobCount = 0
         }
     }
-    return time
+    
+    return finishTimes.max()!
 }
 
-let answer = foo() - 1
+let answer = solution()
 
 print(answer)
