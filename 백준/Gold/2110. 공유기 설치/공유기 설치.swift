@@ -3,38 +3,40 @@ import Foundation
 let nc = readLine()!.split(separator: " ").map{ Int($0)! }
 let n = nc[0]
 let c = nc[1]
-var home = [Int]()
+var housePositions = [Int]()
 
 for _ in 0..<n {
-    home.append(Int(readLine()!)!)
+    housePositions.append(Int(readLine()!)!)
 }
-home.sort()
 
-var left = 1
-var right = home[home.count - 1] - home[0]
-var answer = -999
+housePositions.sort()
 
-while left <= right {
-    var start = home[0]
-    var cnt = 1
-    let mid = (left + right) / 2
+var start = 1
+var end = housePositions.last! - housePositions.first!
+var answer = 0
 
-    // mid 기준으로 home 리스트 돌면서 공유기 설치 가능한지 확인
-    for i in 0..<n {
-        let d = home[i] - start
-        // mid보다 커야 공유기 설치 가능
-        if mid <= d {
-            cnt += 1
-            start = home[i]
+while start <= end {
+    let minimumDist = (start + end) / 2
+    
+    var count = 1
+    var last = housePositions.first!
+
+    for i in 1..<housePositions.count {
+        if housePositions[i] - last >= minimumDist {
+            count += 1
+            if count >= c {
+                break
+            }
+            last = housePositions[i]
         }
     }
     
-    if c <= cnt {
-        answer = mid
-        left = mid + 1
-    } else {
-        right = mid - 1
+    if count >= c{
+        answer = minimumDist
+        start = minimumDist + 1
+        continue
     }
+    end = minimumDist - 1
 }
 
 print(answer)
